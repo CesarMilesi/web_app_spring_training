@@ -2,7 +2,10 @@ package fr.lernejo.todo;
 
 import org.springframework.stereotype.Component;
 
-import javax.servlet.*;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.UUID;
@@ -10,7 +13,7 @@ import java.util.UUID;
 @Component
 public class ApplicationIdentifierFilter implements javax.servlet.Filter {
 
-    private final String tempUUID = UUID.randomUUID().toString();;
+    private final String tempUUID = UUID.randomUUID().toString();
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

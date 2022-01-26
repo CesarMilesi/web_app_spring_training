@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TodoListController {
 
-    private final TodoRepository todoRepository;
+    public TodoRepository todoRepository;
 
     public TodoListController(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
@@ -20,7 +20,7 @@ public class TodoListController {
     }
 
     @GetMapping("/api/todo")
-    public Iterable ReturnList() {
+    public Iterable<TodoEntity> ReturnList() {
         return this.todoRepository.findAll();
     }
 }
